@@ -21,7 +21,6 @@ const db = getFirestore(app);
 const profileRef = collection(db, "People");
 
 
-
 export const signInWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
@@ -93,6 +92,7 @@ const uploadImage = (image) => {
   })
   .then(resp => resp.json())
   .then(data => {
+    console.log("---------"+data.url+"--------");
     return data.url;
   })
   .catch(err => console.log(err))

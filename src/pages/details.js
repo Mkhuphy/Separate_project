@@ -13,9 +13,9 @@ const Details = () => {
 
       }, [user, loading]);
 
-    const [data, setData] = useState({ name: "", email: "", phone: "", fb: "", insta: "", linkedin: "", college: "", twitter: "" });
-    const [image, setImage ] = useState("");
-    const [ url, setUrl ] = useState("");
+    const [data, setData] = useState({ name: "", email: "", phone: "", fb: "", insta: "", linkedin: "", college: "", twitter: "",image_url:null });
+    const [image, setImage ] = useState(null);
+    const [ url, setUrl ] = useState(null);
     const handleChange = event => {
         const { name, value } = event.target;
         setData({...data, [name]: value})
@@ -23,11 +23,11 @@ const Details = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        setProfile(data, user.uid);
         setUrl(uploadImage(image));
+        setProfile(data, user.uid);
         setUrl('');
         setImage('');
-        setData({ name: "", email: "", phone: "", fb: "", insta: "", linkedin: "", college: "", twitter: "" });
+        setData({ name: "", email: "", phone: "", fb: "", insta: "", linkedin: "", college: "", twitter: "" , image_url:null});
         navigate("/Dashboard");
     }
 
@@ -38,48 +38,48 @@ const Details = () => {
             <form onSubmit={submitForm}>
             <label>
                 Email: 
-                <input id="email" placeholder='sonkaria@gmail.com' type="email" name="email" required onChange={handleChange} value={data.email}/>
+                <input id="email" placeholder='username@domain' type="email" name="email" required onChange={handleChange} value={data.email}/>
             </label>
             <br></br>
             <label>
                 Name: 
-                <input id="name" placeholder='Virendra Sonkaria'  type="text" name="name" required onChange={handleChange} value={data.name}/>
+                <input id="name" placeholder='-----'  type="text" name="name" required onChange={handleChange} value={data.name}/>
             </label>
             <br></br>
             <label>
                 Phone: 
-                <input placeholder='9999999999' type="tel" id="phone" name="phone" required onChange={handleChange} value={data.phone}/>
+                <input placeholder='xxxxxxxxxx' type="tel" id="phone" name="phone" required onChange={handleChange} value={data.phone}/>
             </label>
             <br></br>
             <label>
                 College: 
-                <input id="college" placeholder='IIT Kanpur' type="text" name="college" required onChange={handleChange} value={data.college}/>
+                <input id="college" placeholder='college' type="text" name="college" required onChange={handleChange} value={data.college}/>
             </label>
             <br></br>
             <label>
                 LinkedIn Profile Link: 
-                <input id="linkedin" type="text" name="linkedin" required onChange={handleChange} value={data.linkedin}/>
+                <input id="linkedin" type="text" name="linkedin" placeholder="linkedin" required onChange={handleChange} value={data.linkedin}/>
             </label>
             <br></br>
             <label>
                 Instagram Profile Link: 
-                <input id="insta" type="text" name="insta" required onChange={handleChange} value={data.insta}/>
+                <input id="insta" type="text" name="insta" placeholder='instaId' required onChange={handleChange} value={data.insta}/>
             </label>
             <br></br>
             <label>
                 Twitter Profile Link: 
-                <input id="twitter" type="text" name="twitter" onChange={handleChange} value={data.twitter}/>
+                <input id="twitter" type="text" name="twitter" placeholder='twitterId' onChange={handleChange} value={data.twitter}/>
             </label>
             <br></br>
             <label>
                 FaceBook Profile Link: 
-                <input id="fb" type="text" name="fb" required onChange={handleChange} value={data.fb}/>
+                <input id="fb" type="text" name="fb" placeholder='fbId' required onChange={handleChange} value={data.fb}/>
             </label>
             
             <br></br>
             <label>
                 College ID: 
-                <input id="id" type="file" required onChange= {(e)=> setImage(e.target.files[0])}  />
+                <input id="id" type="file" placeholder='collegeId' required onChange= {(e)=> setImage(e.target.files[0])}  />
             </label>
 
             <br></br>
