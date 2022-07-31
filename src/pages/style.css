@@ -244,18 +244,8 @@ a {
 
     color: #443e5d;
   }
-  .main1 {
-    margin-left: 165px; /* Same as the width of the sidenav */
-    font-size: 28px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
-    margin-right: 165px;
-    border: rgb(154, 200, 200) solid;
-    background-color: rgb(245, 248, 248);
-    border-radius: 20px;
-    border-bottom: 12px;
-    border-top: 12px;
-
-    color: #443e5d;
+  .maitn1 {
+    
   }
   .grind1{
     text-align: center;

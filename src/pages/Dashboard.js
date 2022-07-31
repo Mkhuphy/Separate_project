@@ -69,7 +69,6 @@ export default function Dashboard() {
           <Sidebar name ={data6} collage={data1} />
         </div>
         <div className="basis-3/4 p-3">
-          <Button onClick={handleShow}>Toggle modal</Button>
           <Modal show={modalShow}>
             <Modal.Header>Terms of Service</Modal.Header>
             <Modal.Body>
@@ -94,15 +93,66 @@ export default function Dashboard() {
               <Button color="gray">Decline</Button>
             </Modal.Footer>
           </Modal>
-          <div className="main1">
-            <p className="text-green-500">Name: {data6}</p>
+          <div className="maitn1">
+            {/* <p className="text-green-500">Name: {data6}</p>
             <p>Email Id: {data2}</p>
             <p>Phone Number: {data7}</p>
             <p>College: {data1}</p>
             <p>Facebook Id: {data3}</p>
             <p>Instagram Id: {data4}</p>
             <p>LinkedIn Id: {data5}</p>
-            <p>Twitter Id: {data8}</p>
+            <p>Twitter Id: {data8}</p> */}
+
+            <table class="styled-table">
+    <thead>
+        <tr>
+            <th>Field</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+            <td>Name</td>
+            <td>{data2}</td>
+        </tr>
+
+        <tr>
+            <td>Email Id</td>
+            <td>{data6}</td>
+        </tr>
+
+        <tr>
+            <td>Phone Number</td>
+            <td>{data7}</td>
+        </tr>
+
+        <tr>
+            <td>College</td>
+            <td>{data1}</td>
+        </tr>
+
+        <tr>
+            <td>Facebook Id</td>
+            <td>{data3}</td>
+        </tr>
+
+        <tr>
+            <td>Instagram Id</td>
+            <td>{data4}</td>
+        </tr>
+
+        <tr>
+            <td>LinkedIn Id</td>
+            <td>{data5}</td>
+        </tr>
+
+        <tr>
+            <td>Twitter Id</td>
+            <td>{data8}</td>
+        </tr>
+
+    </tbody>
+</table>
           </div>
         </div>
       </div>

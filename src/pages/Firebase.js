@@ -22,7 +22,6 @@ const profileRef = collection(db, "People");
 
 
 
-
 export const signInWithGoogle = () => {
   const provider = new GoogleAuthProvider();
   signInWithPopup(auth, provider)
@@ -76,6 +75,7 @@ const getProfile = async (id) =>{
       console.log(error)
   }
 }
+
 
 async function setProfile(data, id) {
  await setDoc(doc(db, "People", id), data);
