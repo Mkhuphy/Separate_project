@@ -245,7 +245,21 @@ a {
     color: #443e5d;
   }
   .maitn1 {
-    
+
+    background-image: url('./ranger.png') ;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* height: 100%; */
+    /* margin: 0%;
+  /* Center and scale the image nicely */
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */ 
+
+
   }
   .grind1{
     text-align: center;
@@ -342,4 +356,38 @@ a {
   border-radius: 120px;
   /* background-image: url("../../public/pic1.png"); */
   /* background-size: 100% 100%; */
+}
+.verify{
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: xx-large;
+  font-weight: bolder;
+  margin: 40px;
+  background-color: #b8dfb4;
+  border-radius: 50px;
+  
+}
+.verify1{
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: xx-large;
+  font-weight: bolder;
+  margin: 40px;
+  background-color: rgb(73,131,127);
+  border-radius: 50px;
+  
+}
+.verify2{
+  text-align: left;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: small;
+  font-weight: bolder;
+  margin: 40px;
+  background-color: rgb(73,131,127);
+  border-radius: 50px;
+  tab-size: 10;
+  color: #f7efef;
+}
+.tab{
+  margin-left: 100;
 }

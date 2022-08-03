@@ -18,7 +18,7 @@ const Reg = () => {
           const docRef = await getProfile(user.uid);
           if(docRef.exists()){
             console.log(docRef.data())
-            navigate("/dashboard")
+            navigate("/taskp")
           }else{
             navigate("/details");
           }

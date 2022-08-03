@@ -43,18 +43,27 @@
   font-size: 0.9em;
   font-family: sans-serif;
   min-width: 1000px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 20px ;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 25px;
 }
 .styled-table thead tr {
   background-color: #009879;
-  color: #ffffff;
+  color: #f5eeee;
   text-align: left;
 }
-.styled-table th,
+
 .styled-table td {
-    padding: 12px 15px;
+    padding: 22px 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+}
+.styled-table th{
+  padding: 10px 15px;
+    text-align: center;
+    color: #000000;
 }
 .styled-table tbody tr {
   border-bottom: 1px solid #dddddd;

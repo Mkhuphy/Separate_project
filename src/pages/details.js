@@ -13,7 +13,7 @@ const Details = () => {
 
       }, [user, loading]);
 
-    const [data, setData] = useState({ name: "", email: "", phone: "", fb: "", insta: "", linkedin: "", college: "", twitter: "",image_url:null });
+    const [data, setData] = useState({ verified:0, name: "", email: "", phone: "", fb: "", insta: "", linkedin: "", college: "", twitter: "",image_url:null });
     const [image, setImage ] = useState(null);
     const [ url, setUrl ] = useState(null);
     const handleChange = event => {
@@ -24,11 +24,12 @@ const Details = () => {
     const submitForm = (e) => {
         e.preventDefault();
         setUrl(uploadImage(image));
+        // setData({...data, [image_url]: {url}})
         setProfile(data, user.uid);
         setUrl('');
         setImage('');
         setData({ name: "", email: "", phone: "", fb: "", insta: "", linkedin: "", college: "", twitter: "" , image_url:null});
-        navigate("/Dashboard");
+        navigate("/taskp");
     }
 
     return (

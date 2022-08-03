@@ -81,12 +81,12 @@ async function setProfile(data, id) {
 
 }
 
-const uploadImage = (image) => {
+const uploadImage = async (image) => {
   const data = new FormData()
   data.append("file", image)
   data.append("upload_preset", "geeky_images")
   data.append("cloud_name","udghosh")
-  fetch("https://api.cloudinary.com/v1_1/udghosh/image/upload",{
+  await fetch("https://api.cloudinary.com/v1_1/udghosh/image/upload",{
     method:"post",
     body: data
   })
