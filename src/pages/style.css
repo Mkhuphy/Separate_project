@@ -246,6 +246,7 @@ a {
   }
   .maitn1 {
 
+    /* margin-top: 4px; */
     background-image: url('./ranger.png') ;
 
     -webkit-background-size: cover;

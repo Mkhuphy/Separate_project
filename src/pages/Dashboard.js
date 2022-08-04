@@ -130,6 +130,64 @@ export default function Dashboard() {
 
     </tbody>
 </table>
+<div className="rewards">
+  <h1>WE ALSO HAVE SOME REWARDS FOR YOU</h1>
+</div>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Task </th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+            <td>Like and Share on Facebook</td>
+            <td>20</td>
+        </tr>
+
+        <tr>
+            <td>Updating job profile on Linkedin</td>
+            <td>60</td>
+        </tr>
+
+        <tr>
+            <td>sharing the posts as insta story</td>
+            <td>30</td>
+        </tr>
+
+        <tr>
+            <td>If Rf is used for registration</td>
+            <td>40</td>
+        </tr>
+
+        <tr>
+            <td>Last year participants coming back(Loyalty)</td>
+            <td>50</td>
+        </tr>
+
+        <tr>
+            <td>Pre-registration</td>
+            <td>50</td>
+        </tr>
+
+        <tr>
+            <td>if write a blog and this blog is verified </td>
+            <td>60</td>
+        </tr>
+
+        <tr>
+            <td>Upgradation of Level</td>
+            <td>50</td>
+        </tr>
+
+        <tr>
+            <td>Event Organizing in your city</td>
+            <td>100</td>
+        </tr>
+
+    </tbody>
+</table>
           </div>
         </div>
       </div>

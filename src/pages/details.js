@@ -29,7 +29,7 @@ const Details = () => {
         setUrl('');
         setImage('');
         setData({ name: "", email: "", phone: "", fb: "", insta: "", linkedin: "", college: "", twitter: "" , image_url:null});
-        navigate("/taskp");
+        navigate("/Dashboard");
     }
 
     return (

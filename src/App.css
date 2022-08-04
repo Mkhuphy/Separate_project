@@ -38,19 +38,20 @@
 }
 
 .styled-table {
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  font-family: sans-serif;
-  min-width: 1000px;
-  box-shadow: 0 0 20px ;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 25px;
+  border-collapse: collapse; 
+ margin: 25px 0;
+ font-size: 0.9em;
+ font-family: sans-serif;
+ min-width: 1000px;
+ box-shadow: 0 0 20px ;
+ margin-left: auto;
+ margin-right: auto;
+ border-radius: 25px;
 }
+
 .styled-table thead tr {
   background-color: #009879;
-  color: #f5eeee;
+  color: #080606;
   text-align: left;
 }
 
@@ -58,7 +59,7 @@
     padding: 22px 15px;
     text-align: center;
     font-weight: bold;
-    color: #ffffff;
+    color: #000000;
 }
 .styled-table th{
   padding: 10px 15px;
@@ -79,4 +80,19 @@
 .styled-table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
+}
+
+.rewards{
+  padding: 20px;
+  background-color: aliceblue;
+  border-radius: 30px;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-image: url(./pages/pic-bg2.jpeg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: rgb(219, 255, 15);
+  font-weight: bolder;
 }
