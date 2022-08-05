@@ -96,3 +96,53 @@
   color: rgb(219, 255, 15);
   font-weight: bolder;
 }
+.styled-table1{
+  background-image: url(./pages/ranger.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+
+  border-collapse: collapse; 
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 1000px;
+  box-shadow: 0 0 20px ;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+}
+
+.styled-table1 th{
+  background-color: #009879;
+  padding: 8px 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #000000;
+}
+.styled-table1 thead{
+  background-color: #009879;
+  padding: 8px 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #000000;
+}
+
+
+.styled-table1 td {
+  padding: 22px 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #000000;
+}
+
+.mark{
+  /* margin: auto; */
+  /* padding: auto; */
+  /* align-self: auto; */
+  text-align: center;
+  background-image: url(./pages/pic-bg1.jpeg);
+  background-size: cover;
+}

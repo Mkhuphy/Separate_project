@@ -69,7 +69,7 @@ export default function Task() {
   };
   sun();
 
-  const link = "https://docs.google.com/spreadsheets/d/1KQMG_zvagyfPMs4cmIEUvY7bK79XkI6dDxahZYFjeQE/gviz/tq?tqx=out:csv&sheet=Football"; 
+  const link = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZyIUONuoiohncAmGdlScCA-u_EXcpncQ4LNX-XzuVb3oPaDc-XB0X43QnY-9Eb2MtyavrdjGgI2XD/pub?gid=0&single=true&output=csv"; 
   const [parsedData, setParsedData] = useState([]);
   const [tableRows, setTableRows] = useState([]);
   const [values, setValues] = useState([]);
@@ -122,6 +122,7 @@ export default function Task() {
         <tr>
         <th>Insta Link</th>
             <th>facebook Link</th>
+            <th>Picture</th>
         </tr>
     </thead>
     <tbody>
@@ -129,9 +130,15 @@ export default function Task() {
             return (
               <tr key={index}>
                 {value.map((val, i) => {
+                  if(i<=1){
                   return <td key={i}>{val}
-                  {/* <a >INSTAGRAM - {index+1}</a> */}
                   </td>;
+                  }
+                  else {
+                    return <td key={i}>
+                    <img src={val} />
+                    </td>;
+                  }
                 })}
               </tr>
             );

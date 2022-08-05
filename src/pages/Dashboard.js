@@ -80,7 +80,7 @@ export default function Dashboard() {
             <p>LinkedIn Id: {data5}</p>
             <p>Twitter Id: {data8}</p> */}
 
-            <table class="styled-table">
+            <table class="styled-table1">
     <thead>
         <tr>
             <th>Field</th>
