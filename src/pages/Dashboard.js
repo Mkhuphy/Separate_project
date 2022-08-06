@@ -19,6 +19,7 @@ export default function Dashboard() {
   const [data6, setData6] = useState("RRR");
   const [data7, setData7] = useState("RRR");
   const [data8, setData8] = useState("RRR");
+  const [data9, setData9] = useState("RRR");
   const [modalShow, setModalShow] = useState(false);
   const handleShow = () => setModalShow(true);
   const handleClose = () => setModalShow(false);
@@ -52,6 +53,7 @@ export default function Dashboard() {
       setData6(snap.data()["name"]);
       setData7(snap.data()["phone"]);
       setData8(snap.data()["twitter"]);
+      setData9(snap.data()["referral_id"]);
       console.log(data1);
       console.log(snap.data()["fb"]);
       // console.log("bulb");
@@ -79,7 +81,9 @@ export default function Dashboard() {
             <p>Instagram Id: {data4}</p>
             <p>LinkedIn Id: {data5}</p>
             <p>Twitter Id: {data8}</p> */}
-
+            <div className="rewards1">
+              <h1>Your referral-id is:     {data9}</h1>
+            </div>
             <table class="styled-table1">
     <thead>
         <tr>

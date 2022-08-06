@@ -1,7 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, signOut } from "firebase/auth";
-import { getFirestore, addDoc, doc, collection, setDoc, query, where , getDoc } from "firebase/firestore";
+import { getFirestore, addDoc, doc, collection, setDoc, query, where , getDoc,getDocs } from "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -76,9 +76,18 @@ const getProfile = async (id) =>{
 }
 
 
-async function setProfile(data, id) {
- await setDoc(doc(db, "People", id), data);
+async function setProfile(data, id, RBY) {
+  await setDoc(doc(db, "People", id), data);
 
+  const q = query(collection(db, "People"), where("referral_id", "==", RBY));
+
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach(async (dox) => {
+    
+    console.log(dox.id, " => ", dox.data()["referred"]);
+    await setDoc(doc(db, "People", dox.id), {referred: true},{merge: true});
+    console.log(dox.id, " => ", dox.data()["referred"]);
+});
 }
 
 const uploadImage = async (image) => {

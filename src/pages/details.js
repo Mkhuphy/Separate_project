@@ -13,22 +13,33 @@ const Details = () => {
 
       }, [user, loading]);
 
-    const [data, setData] = useState({ verified:0, name: "", email: "", phone: "", fb: "", insta: "", linkedin: "", college: "", twitter: "",image_url:null });
+    const [data, setData] = useState({ name: "", email: "", phone: "", fb: "", insta: "", linkedin: "", college: "", twitter: "",image_url:null,referral_id:"", referred: false});
     const [image, setImage ] = useState(null);
     const [ url, setUrl ] = useState(null);
+    const [ rby, setRby ] = useState("");
+
     const handleChange = event => {
         const { name, value } = event.target;
         setData({...data, [name]: value})
     };
+    
+    const handleChange1 = event => {
+        const value  = event.target;
+        console.log(typeof(value.value))
+        setRby(value.value);
+        console.log(typeof(rby))
+    };
 
     const submitForm = (e) => {
         e.preventDefault();
+        data.referral_id= Math.round(1000000000 * Math.random())
         setUrl(uploadImage(image));
         // setData({...data, [image_url]: {url}})
-        setProfile(data, user.uid);
+        console.log("sss"+rby+"sss")
+        setProfile(data, user.uid, rby);
         setUrl('');
         setImage('');
-        setData({ name: "", email: "", phone: "", fb: "", insta: "", linkedin: "", college: "", twitter: "" , image_url:null});
+        setData({ name: "", email: "", phone: "", fb: "", insta: "", linkedin: "", college: "", twitter: "" , image_url:null, referral_id:""});
         navigate("/Dashboard");
     }
 
@@ -76,6 +87,13 @@ const Details = () => {
         </div>
     </div>
     <div class='mb-6'>
+    <div>
+            <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Referral Id</label>
+            <input type="number" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="987654321" onChange={handleChange1}/>
+        </div>
+        
+    </div>
+    <div class='mb-6'>
     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input">Upload file</label>
 <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" onChange= {(e)=> setImage(e.target.files[0])} />
     </div>
@@ -92,7 +110,7 @@ const Details = () => {
         <br/>
         <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={logout}>Logout</button>
         <a href="/Dashboard">
-        <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={logout}>Back</button>
+        <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" >Back</button>
         </a>
         </div>
         );

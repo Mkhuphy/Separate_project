@@ -24,7 +24,7 @@ const Leftbar = (props) => {
     navigate("/")
   }
   const nav =  () =>{
-    navigate('/details');
+    navigate('/cdetails');
   }
   const task =  () =>{
     navigate('/task');

@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Task from './pages/task';
 import TaskPoints from './pages/TaskPoints';
+import ChangeDetails from './pages/changeDetails';
 
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path='/taskp' element={<TaskPoints />} />
         <Route path='/' exact element={<Home />} />
         <Route path='/details' element={<Details />} />
+        <Route path='/cdetails' element={<ChangeDetails />} />
         <Route path='/Dashboard' element={<Dashboard />} />
       </Routes>
     </Router>

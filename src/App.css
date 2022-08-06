@@ -146,3 +146,17 @@
   background-image: url(./pages/pic-bg1.jpeg);
   background-size: cover;
 }
+.rewards1{
+  padding: 20px;
+  background-color: aliceblue;
+  border-radius: 30px;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-image: url(./pages/pic-bg1.jpeg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: rgb(219, 255, 15);
+  font-weight: bolder;
+}
