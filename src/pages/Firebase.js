@@ -90,7 +90,7 @@ async function setProfile(data, id, RBY) {
 });
 }
 
-const uploadImage = async (image) => {
+const uploadImage = async (image,id) => {
   const data = new FormData()
   data.append("file", image)
   data.append("upload_preset", "geeky_images")
@@ -101,6 +101,7 @@ const uploadImage = async (image) => {
   })
   .then(resp => resp.json())
   .then(data => {
+    setDoc(doc(db, "People", id), {url: data.url},{merge: true});
     console.log("---------"+data.url+"--------");
     return data.url;
   })

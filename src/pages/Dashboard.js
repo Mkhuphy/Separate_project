@@ -20,6 +20,7 @@ export default function Dashboard() {
   const [data7, setData7] = useState("RRR");
   const [data8, setData8] = useState("RRR");
   const [data9, setData9] = useState("RRR");
+  const [data10, setData10] = useState("RRR");
   const [modalShow, setModalShow] = useState(false);
   const handleShow = () => setModalShow(true);
   const handleClose = () => setModalShow(false);
@@ -54,6 +55,7 @@ export default function Dashboard() {
       setData7(snap.data()["phone"]);
       setData8(snap.data()["twitter"]);
       setData9(snap.data()["referral_id"]);
+      setData10(snap.data()["url"]);
       console.log(data1);
       console.log(snap.data()["fb"]);
       // console.log("bulb");
@@ -68,7 +70,7 @@ export default function Dashboard() {
     <>
       <div className="flex flex-col md:flex-row ">
         <div className="basis-1/4">
-          <Sidebar name ={data6} collage={data1} />
+          <Sidebar name ={data6} collage={data1} url={data10}/>
         </div>
         <div className="basis-3/4 p-3">
           

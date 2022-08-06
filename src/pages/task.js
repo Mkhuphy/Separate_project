@@ -26,6 +26,7 @@ export default function Task() {
   const [data6, setData6] = useState("RRR");
   const [data7, setData7] = useState("RRR");
   const [data8, setData8] = useState("RRR");
+  const [data10, setData10] = useState("RRR");
   const [modalShow, setModalShow] = useState(false);
   const handleShow = () => setModalShow(true);
   const handleClose = () => setModalShow(false);
@@ -59,6 +60,7 @@ export default function Task() {
       setData6(snap.data()["name"]);
       setData7(snap.data()["phone"]);
       setData8(snap.data()["twitter"]);
+      setData10(snap.data()["url"]);
       console.log(data1);
       console.log(snap.data()["fb"]);
       // console.log("bulb");
@@ -103,7 +105,7 @@ export default function Task() {
     <>
       <div className="flex flex-col md:flex-row ">
         <div className="basis-1/4">
-          <Sidebar name ={data6} collage={data1} />
+          <Sidebar name ={data6} collage={data1} url={data10}/>
         </div>
         <div className="basis-3/4 p-3">
           

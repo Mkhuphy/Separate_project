@@ -162,6 +162,9 @@ const Leftbar = (props) => {
                 <span className="flex-1 ml-3 whitespace-nowrap">Correct Registration Details</span>
               </button>
             </li>
+            <li>
+              <img src={props.url} alt="" />
+            </li>
           </ul>
         </div>
       </aside>
