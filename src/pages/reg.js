@@ -31,7 +31,7 @@ const Reg = () => {
     return (
 
         <div style={{textAlign: 'center', marginTop: '10%', width: '300px', height: '300px', margin:'auto', marginTop: '10%'}}>
-            <img style={{width: '100px', height: '100px'}} src='./logo.png'  />
+            <img style={{width: '100px', height: '150px'}} src='./logo.png'  />
             
             <h1>UDGHOSH'22</h1>
             
