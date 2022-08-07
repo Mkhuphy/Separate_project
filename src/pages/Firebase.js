@@ -84,9 +84,8 @@ async function setProfile(data, id, RBY) {
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach(async (dox) => {
     
-    console.log(dox.id, " => ", dox.data()["referred"]);
     await setDoc(doc(db, "People", dox.id), {referred: true},{merge: true});
-    console.log(dox.id, " => ", dox.data()["referred"]);
+    await setDoc(doc(db, "People", dox.id, "points", "points"), {total: 40},{merge: true});
 });
 }
 
