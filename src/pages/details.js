@@ -32,7 +32,10 @@ const Details = () => {
 
     const submitForm = (e) => {
         e.preventDefault();
-        data.referral_id= Math.round(1000000000 * Math.random())
+        const j = (Math.round(1000000000 * Math.random()));
+        const r = j.toString();
+        data.referral_id= r;
+
         setUrl(uploadImage(image,user.uid));
         // setData({...data, [image_url]: {url}})
         console.log("sss"+rby+"sss")
