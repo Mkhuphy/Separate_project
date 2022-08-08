@@ -2,6 +2,8 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, signOut } from "firebase/auth";
 import { getFirestore, addDoc, doc, collection, setDoc, query, where , getDoc,getDocs } from "firebase/firestore";
+import { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 
 const firebaseConfig = {
@@ -19,6 +21,7 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 const db = getFirestore(app);
 const profileRef = collection(db, "People");
+
 
 
 export const signInWithGoogle = () => {
@@ -76,17 +79,17 @@ const getProfile = async (id) =>{
 }
 
 
-async function setProfile(data, id, RBY) {
-    await setDoc(doc(db, "People", id), data);
+ async function setProfile(data, id, RBY) {
+    await setDoc(doc(db, "People", id), data,{merge: true});
     // const docRef = doc(db, "People", id);
 
     const q = query(collection(db, "People"), where("referral_id", "==", RBY));
-    console.log(RBY);
     const querySnapshot = await getDocs(q);
-    console.log(querySnapshot);
     querySnapshot.forEach(async (dox) => {
       // console.log(doc.id, " => ", doc.data());
       console.log("found");
+      // const f = await dox.data().points.points.total;
+      // console.log(f+"-------------------------------------------");
       await setDoc(doc(db, "People", dox.id), {referred: true},{merge: true});
       await setDoc(doc(db, "People", dox.id, "points", "points"), {total: 40},{merge: true});
   });
