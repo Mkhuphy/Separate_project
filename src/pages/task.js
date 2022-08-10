@@ -105,7 +105,7 @@ export default function Task() {
     <>
       <div className="flex flex-col md:flex-row ">
         <div className="basis-1/4">
-          <Sidebar name ={data6} collage={data1} url={data10}/>
+          <Sidebar name ={data6} collage={data1} url={data10} />
         </div>
         <div className="basis-3/4 p-3">
           
@@ -120,6 +120,7 @@ export default function Task() {
             <p>Twitter Id: {data8}</p> */}
 
 {values.map((value, index) => {
+            
             return (
               <a key={index} href="#" class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <br/>

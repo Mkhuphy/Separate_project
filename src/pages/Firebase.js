@@ -88,8 +88,7 @@ const getProfile = async (id) =>{
     querySnapshot.forEach(async (dox) => {
       // console.log(doc.id, " => ", doc.data());
       console.log("found");
-      // const f = await dox.data().points.points.total;
-      // console.log(f+"-------------------------------------------");
+      
       await setDoc(doc(db, "People", dox.id), {referred: true},{merge: true});
       await setDoc(doc(db, "People", dox.id, "points", "points"), {total: 40},{merge: true});
   });
