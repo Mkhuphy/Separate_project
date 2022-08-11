@@ -9,7 +9,7 @@ import { async } from "@firebase/util";
 import Sidebar from "../components/Navbar/Sidebar";
 // import "./style.css";
 import "../index.css";
-export default function Dashboard() {
+export default function Leaderboard() {
   const [user, loading] = useAuthState(auth);
   const [data1, setData1] = useState("RRR");
   const [data2, setData2] = useState("RRR");
@@ -21,6 +21,7 @@ export default function Dashboard() {
   const [data8, setData8] = useState("RRR");
   const [data9, setData9] = useState("RRR");
   const [data10, setData10] = useState("RRR");
+  const [data11, setData11] = useState("RRR");
   const [modalShow, setModalShow] = useState(false);
   const handleShow = () => setModalShow(true);
   const handleClose = () => setModalShow(false);
@@ -42,18 +43,28 @@ export default function Dashboard() {
   }, [user, loading]);
 
   const sun = async () => {
+    const snap = await getDoc(doc(db, "People/", user.uid,"/points/points"));
+
+    if (snap.exists()) {
+
+      setData11(snap.data()["total"]);
+      console.log(data1);
+      console.log(snap.data()["fb"]);
+      // console.log("bulb");
+      return snap;
+    } else {
+      console.log("No such document");
+    }
+  };
+  sun();
+
+  const sun1 = async () => {
     const snap = await getDoc(doc(db, "People/", user.uid));
 
     if (snap.exists()) {
-      // console.log(typeof(snap.data()['fb']));
+
       setData1(snap.data()["college"]);
-      setData2(snap.data()["email"]);
-      setData3(snap.data()["fb"]);
-      setData4(snap.data()["insta"]);
-      setData5(snap.data()["linkedin"]);
       setData6(snap.data()["name"]);
-      setData7(snap.data()["phone"]);
-      setData8(snap.data()["twitter"]);
       setData9(snap.data()["referral_id"]);
       setData10(snap.data()["url"]);
       console.log(data1);
@@ -64,7 +75,7 @@ export default function Dashboard() {
       console.log("No such document");
     }
   };
-  sun();
+  sun1();
 
   return (
     <>
@@ -95,44 +106,11 @@ export default function Dashboard() {
     </thead>
     <tbody>
     <tr>
-            <td>Name</td>
-            <td>{data2}</td>
+            <td>Your score</td>
+            <td>{data11}</td>
         </tr>
 
-        <tr>
-            <td>Email Id</td>
-            <td>{data6}</td>
-        </tr>
-
-        <tr>
-            <td>Phone Number</td>
-            <td>{data7}</td>
-        </tr>
-
-        <tr>
-            <td>College</td>
-            <td>{data1}</td>
-        </tr>
-
-        <tr>
-            <td>Facebook Id</td>
-            <td>{data3}</td>
-        </tr>
-
-        <tr>
-            <td>Instagram Id</td>
-            <td>{data4}</td>
-        </tr>
-
-        <tr>
-            <td>LinkedIn Id</td>
-            <td>{data5}</td>
-        </tr>
-
-        <tr>
-            <td>Twitter Id</td>
-            <td>{data8}</td>
-        </tr>
+        
 
     </tbody>
 </table>

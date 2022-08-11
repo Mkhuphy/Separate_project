@@ -32,6 +32,9 @@ const Leftbar = (props) => {
   const dash =  () =>{
     navigate('/Dashboard');
   }
+  const leader =  () =>{
+    navigate('/Leaderboard');
+  }
   return (
     <>
       <aside
@@ -58,7 +61,7 @@ const Leftbar = (props) => {
           <ul className="space-y-2 mt-6">
             <li>
               <a
-                href="#"
+                onClick={leader}
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg
@@ -140,7 +143,7 @@ const Leftbar = (props) => {
             </li>
             <li>
               <a
-                href={nav}
+                onClick={nav}
                 className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg

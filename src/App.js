@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard';
 import Task from './pages/task';
 import TaskPoints from './pages/TaskPoints';
 import ChangeDetails from './pages/changeDetails';
+import Leaderboard from './pages/Leaderboard';
 
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/details' element={<Details />} />
         <Route path='/cdetails' element={<ChangeDetails />} />
         <Route path='/Dashboard' element={<Dashboard />} />
+        <Route path='/Leaderboard' element={<Leaderboard />} />
       </Routes>
     </Router>
 
