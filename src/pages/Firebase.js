@@ -87,9 +87,9 @@ const getProfile = async (id) =>{
     querySnapshot.forEach(async (dox) => {
       // console.log(doc.id, " => ", doc.data());
       console.log("found");
-      const snap = await getDoc(doc(db, "People/", id,"/points/points"));
+      const snap = await getDoc(doc(db, "People/", dox.id,"/points/points"));
       const t = snap.data()["total"]
-      console.log(typeof(t));
+      console.log(t);
       await setDoc(doc(db, "People", dox.id), {referred: true},{merge: true});
       await setDoc(doc(db, "People", dox.id, "points", "points"), {total: t+40},{merge: true});
   });
