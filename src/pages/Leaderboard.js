@@ -2,26 +2,27 @@ import userEvent from "@testing-library/user-event";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout, setProfile, uploadImage } from "./Firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, collectionGroup, doc, getDoc, getDocs, where } from "firebase/firestore";
 import { Button, Modal, Accordion } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { async } from "@firebase/util";
 import Sidebar from "../components/Navbar/Sidebar";
+import { query, orderBy, limit } from "firebase/firestore"; 
 // import "./style.css";
 import "../index.css";
 export default function Leaderboard() {
   const [user, loading] = useAuthState(auth);
   const [data1, setData1] = useState("RRR");
-  const [data2, setData2] = useState("RRR");
-  const [data3, setData3] = useState("RRR");
-  const [data4, setData4] = useState("RRR");
-  const [data5, setData5] = useState("RRR");
+  const [data2, setData2] = useState(0);
+  const [data3, setData3] = useState(0);
+  const [data4, setData4] = useState(0);
+  const [data5, setData5] = useState(0);
   const [data6, setData6] = useState("RRR");
-  const [data7, setData7] = useState("RRR");
+  const [data7, setData7] = useState(0);
   const [data8, setData8] = useState("RRR");
   const [data9, setData9] = useState("RRR");
   const [data10, setData10] = useState("RRR");
-  const [data11, setData11] = useState("RRR");
+  const [data11, setData11] = useState(0);
   const [modalShow, setModalShow] = useState(false);
   const handleShow = () => setModalShow(true);
   const handleClose = () => setModalShow(false);
@@ -45,12 +46,12 @@ export default function Leaderboard() {
   const sun = async () => {
     const snap = await getDoc(doc(db, "People/", user.uid,"/points/points"));
 
+
+    
     if (snap.exists()) {
 
       setData11(snap.data()["total"]);
-      console.log(data1);
-      console.log(snap.data()["fb"]);
-      // console.log("bulb");
+      
       return snap;
     } else {
       console.log("No such document");
@@ -67,8 +68,6 @@ export default function Leaderboard() {
       setData6(snap.data()["name"]);
       setData9(snap.data()["referral_id"]);
       setData10(snap.data()["url"]);
-      console.log(data1);
-      console.log(snap.data()["fb"]);
       // console.log("bulb");
       return snap;
     } else {
@@ -76,7 +75,39 @@ export default function Leaderboard() {
     }
   };
   sun1();
-
+  
+    const sun2 = async () => {
+      var i = 0;
+      const museums = query(collectionGroup(db, 'points'), orderBy("total","desc"), limit(3));
+      const querySnapshot = await getDocs(museums);
+      querySnapshot.forEach((doc,index) => {
+        // const snap = await getDoc(doc);
+      i=i+1;
+      // console.log(doc.id, ' => ', doc.data());
+      if(i==1)
+      {
+        setData2(doc.data()['total']);
+      }
+      if(i==2)
+      {
+        setData3(doc.data()['total']);
+      }
+      if(i==3)
+      {
+        setData4(doc.data()['total']);
+      }
+      if(i==4)
+      {
+        setData5(doc.data()['total']);
+      }
+      if(i==5)
+      {
+        setData7(doc.data()['total']);
+      }
+    });
+    i=0;
+    };
+    sun2();
   return (
     <>
       <div className="flex flex-col md:flex-row ">
@@ -98,22 +129,50 @@ export default function Leaderboard() {
               <h1>Your referral-id is:     {data9}</h1>
             </div>
             <table class="styled-table1">
-    <thead>
-        <tr>
-            <th>Field</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-    <tr>
-            <td>Your score</td>
-            <td>{data11}</td>
-        </tr>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td>Your score</td>
+                    <td>{data11}</td>
+                  </tr>
+              </tbody>
+            </table>
 
-        
+            <div className="rewards2">
+                  <h1>OUR TOP CONTESTANTS.</h1>
+            </div>
 
-    </tbody>
-</table>
+            <table class="styled-table1">
+              <tbody>
+                  <tr>
+                    <td>1.</td>
+                    <td>{data2}</td>
+                  </tr>
+                  <tr>
+                    <td>2.</td>
+                    <td>{data3}</td>
+                  </tr>
+                  <tr>
+                    <td>3.</td>
+                    <td>{data4}</td>
+                  </tr>
+                  <tr>
+                    <td>4.</td>
+                    <td>{data5}</td>
+                  </tr>
+                  <tr>
+                    <td>5.</td>
+                    <td>{data7}</td>
+                  </tr>
+              </tbody>
+            </table>
+
+
 <div className="rewards">
   <h1>WE ALSO HAVE SOME REWARDS FOR YOU</h1>
 </div>
