@@ -1,6 +1,6 @@
 const cafeList = document.querySelector('#cafe-list');
 const form = document.querySelector('#add-cafe-form');
-
+var global_data = []
 // create element & render cafe
 function renderCafe(doc){
     let li = document.createElement('li');
@@ -13,6 +13,12 @@ function renderCafe(doc){
     let insta = document.createElement('span');
     let tw = document.createElement('span');
     
+    temp_arr = []
+    for (key in doc.data()) {
+      temp_arr.push(doc.data()[key]);
+    }
+    global_data.push(temp_arr);
+
     li.setAttribute('data-id', doc.id);
     name.textContent = "Name:                           "+doc.data().name;
     email.textContent = "email:                             "+doc.data().email;
@@ -113,3 +119,36 @@ function hideFunction() {
 //   form.city.value = '';
 // });
 //, "<", form.name.value+"zz"
+function save(){
+
+    // console.log(global_data);
+
+    var csvContent = '';
+    global_data.forEach(function(infoArray, index) {
+        dataString = infoArray.join(',');
+        csvContent += index < global_data.length ? dataString + '\n' : dataString;
+      });
+
+    var download = function(content, fileName, mimeType) {
+      var a = document.createElement('a');
+      mimeType = mimeType || 'application/octet-stream';
+
+      if (navigator.msSaveBlob) { 
+        navigator.msSaveBlob(new Blob([content], {
+          type: mimeType
+        }), fileName);
+      } else if (URL && 'download' in a) { 
+        a.href = URL.createObjectURL(new Blob([content], {
+          type: mimeType
+        }));
+        a.setAttribute('download', fileName);
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } else {
+        location.href = 'data:application/octet-stream,' + encodeURIComponent(content); // only this mime type is supported
+      }
+    }
+      
+      download(csvContent, 'dowload.csv', 'text/csv;encoding:utf-8');
+    }
