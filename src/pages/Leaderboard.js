@@ -78,7 +78,7 @@ export default function Leaderboard() {
   
     const sun2 = async () => {
       var i = 0;
-      const museums = query(collectionGroup(db, 'points'), orderBy("total","desc"), limit(3));
+      const museums = query(collectionGroup(db, 'points'), orderBy("total","desc"), limit(5));
       const querySnapshot = await getDocs(museums);
       querySnapshot.forEach((doc,index) => {
         // const snap = await getDoc(doc);
@@ -147,7 +147,13 @@ export default function Leaderboard() {
                   <h1>OUR TOP CONTESTANTS.</h1>
             </div>
 
-            <table class="styled-table1">
+            <table class="styled-table">
+            <thead>
+        <tr>
+            <th>S NO.</th>
+            <th>POINTS</th>
+        </tr>
+    </thead>
               <tbody>
                   <tr>
                     <td>1.</td>
