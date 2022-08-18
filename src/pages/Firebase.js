@@ -69,7 +69,7 @@ const logout = () => {
   };
 
 const getProfile = async (id) =>{
-  const docRef = doc(db, "People", id);
+  const docRef = doc(db, "Admins", id);
   try {
     const docSnap =  await getDoc(docRef);
     return docSnap;
@@ -79,20 +79,8 @@ const getProfile = async (id) =>{
 }
 
  async function setProfile(data, id, RBY) {
-    await setDoc(doc(db, "People", id), data,{merge: true});
-    // const docRef = doc(db, "People", id);
-    
-    const q = query(collection(db, "People"), where("referral_id", "==", RBY));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach(async (dox) => {
-      // console.log(doc.id, " => ", doc.data());
-      console.log("found");
-      const snap = await getDoc(doc(db, "People/", dox.id,"/points/points"));
-      const t = snap.data()["total"]
-      console.log(t);
-      await setDoc(doc(db, "People", dox.id), {referred: true},{merge: true});
-      await setDoc(doc(db, "People", dox.id, "points", "points"), {total: t+40},{merge: true});
-  });
+    await setDoc(doc(db, "Admins", id), data,{merge: true});
+
 }
 
 const uploadImage = async (image,id) => {

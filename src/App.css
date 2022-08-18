@@ -56,7 +56,7 @@
 }
 
 .styled-table td {
-    padding: 22px 15px;
+    padding: 3px 15px;
     text-align: center;
     font-weight: bold;
     color: #000000;
@@ -97,7 +97,7 @@
   font-weight: bolder;
 }
 .styled-table1{
-  background-image: url(./pages/ranger.png);
+  /* background-image: url(./pages/pic-bg1.jpeg); */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -113,6 +113,7 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 25px;
+  color: rgb(255, 255, 255);
 }
 
 .styled-table1 th{
@@ -132,10 +133,10 @@
 
 
 .styled-table1 td {
-  padding: 22px 15px;
+  padding: 3px 15px;
   text-align: center;
   font-weight: bold;
-  color: #000000;
+  color: rgb(0, 0, 0);
 }
 
 .mark{
@@ -159,6 +160,7 @@
   background-size: cover;
   color: rgb(219, 255, 15);
   font-weight: bolder;
+  margin-top: 300px;
 }
 .rewards2{
   padding: 20px;
@@ -173,4 +175,7 @@
   background-size: cover;
   color: rgb(19, 2, 10);
   font-weight: bolder;
+}
+.hover .hover{
+    color: crimson;
 }
